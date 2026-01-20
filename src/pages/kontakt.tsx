@@ -32,6 +32,16 @@ export function Kontakt() {
                 petra@tattoo-garching.de
               </a>
             </div>
+            
+            <div>
+              <h3 className="text-lg font-medium text-purple-400 mb-2">Öffnungszeiten</h3>
+              <p className="text-gray-300">
+                Termine nur nach Vereinbarung.
+              </p>
+              <p className="text-gray-400 text-sm mt-2">
+                Anfragen werden jederzeit per E-Mail beantwortet.
+              </p>
+            </div>
           </div>
           
           <div>

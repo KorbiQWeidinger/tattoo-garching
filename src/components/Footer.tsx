@@ -93,14 +93,12 @@ export function Footer() {
           <p className="text-zinc-500 text-sm">
             © {new Date().getFullYear()} Tattoo Garching München. Alle Rechte vorbehalten.
           </p>
-          <div className="flex items-center gap-6 text-sm">
-            <a href="#datenschutz" className="text-zinc-500 hover:text-purple-700 transition-colors">
-              Datenschutz
-            </a>
-            <a href="#impressum" className="text-zinc-500 hover:text-purple-700 transition-colors">
-              Impressum
-            </a>
-          </div>
+          <Link 
+            to="/legal"
+            className="text-zinc-500 hover:text-purple-700 transition-colors text-sm"
+          >
+            Datenschutz & Impressum
+          </Link>
         </div>
       </div>
     </footer>

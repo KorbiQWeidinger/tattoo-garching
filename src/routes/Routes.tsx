@@ -4,6 +4,7 @@ import { Galerie } from '@/pages/galerie';
 import { Fragen } from '@/pages/fragen';
 import { Petra } from '@/pages/petra';
 import { Kontakt } from '@/pages/kontakt';
+import { Legal } from '@/pages/legal';
 
 export const Routes = () => {
   return (
@@ -14,6 +15,7 @@ export const Routes = () => {
         <Route path='/fragen' element={<Fragen />} />
         <Route path='/petra' element={<Petra />} />
         <Route path='/kontakt' element={<Kontakt />} />
+        <Route path='/legal' element={<Legal />} />
       </RouterRoutes>
     </Router>
   );

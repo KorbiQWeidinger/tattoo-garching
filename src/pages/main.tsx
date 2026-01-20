@@ -8,13 +8,12 @@ export function Main() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section with Parallax */}
       <section 
-        className="relative min-h-screen flex items-center"
+        className="relative min-h-screen flex items-center bg-fixed bg-center bg-cover"
         style={{
           backgroundImage: `url(${BASE_PATH}/bg-image-one.png)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
         }}
       >
         {/* Dark overlay for better text readability */}
