@@ -17,5 +17,5 @@ export default defineConfig({
     },
   },
   // TODO: remove once we have the domain
-  base: '/tattoo-garching/',
+  base: '',
 } as UserConfig);

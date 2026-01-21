@@ -1,1 +1,1 @@
-export const BASE_PATH = '/tattoo-garching';
+export const BASE_PATH = '';
