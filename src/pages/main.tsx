@@ -8,14 +8,15 @@ export function Main() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Hero Section with Parallax */}
-      <section 
-        className="relative min-h-screen flex items-center bg-fixed bg-center bg-cover"
-        style={{
-          backgroundImage: `url(${BASE_PATH}/bg-image-one.png)`,
-          backgroundAttachment: 'fixed',
-        }}
-      >
+      {/* Hero Section with Parallax (desktop only - mobile doesn't support bg-fixed) */}
+      <section className="relative min-h-screen flex items-center">
+        {/* Background with parallax on desktop only */}
+        <div 
+          className="absolute inset-0 bg-center bg-cover lg:bg-fixed"
+          style={{
+            backgroundImage: `url(${BASE_PATH}/bg-image-one.png)`,
+          }}
+        />
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40" />
         

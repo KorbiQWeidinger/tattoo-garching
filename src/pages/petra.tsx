@@ -35,14 +35,14 @@ export function Petra() {
         </div>
       </div>
 
-      {/* Parallax Image Section */}
-      <div 
-        className="relative h-[50vh] sm:h-[60vh] bg-fixed bg-center bg-cover"
-        style={{
-          backgroundImage: `url(${BASE_PATH}/bg-image-two.png)`,
-          backgroundAttachment: 'fixed',
-        }}
-      >
+      {/* Parallax Image Section - fixed attachment only on desktop (mobile doesn't support it) */}
+      <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-center bg-cover lg:bg-fixed"
+          style={{
+            backgroundImage: `url(${BASE_PATH}/bg-image-two.png)`,
+          }}
+        />
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
