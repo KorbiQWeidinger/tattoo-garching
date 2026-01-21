@@ -16,6 +16,5 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  // TODO: remove once we have the domain
-  base: '',
+  base: '/',
 } as UserConfig);

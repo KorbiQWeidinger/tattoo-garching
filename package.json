@@ -5,7 +5,7 @@
   "type": "module",
   "homepage": ".",
   "scripts": {
-    "dev": "vite --base=/tattoo-garching/",
+    "dev": "vite --base=/",
     "build": "tsc -p tsconfig.app.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
