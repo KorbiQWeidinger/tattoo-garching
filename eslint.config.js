@@ -44,7 +44,7 @@ export default tseslint.config(
 
       // Style
       'no-nested-ternary': 'warn',
-      'spaced-comment': ['warn', 'always'],
+      'spaced-comment': ['warn', 'always', { markers: ['/'] }],
       'linebreak-style': 0,
 
       // TypeScript specific
