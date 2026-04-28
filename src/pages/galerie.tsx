@@ -8,28 +8,60 @@ interface GallerySectionProps {
   onImageClick: (src: string) => void;
 }
 
+const PAGE_SIZE = 8;
+
 function GallerySection({ title, images, onImageClick }: GallerySectionProps) {
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(images.length / PAGE_SIZE);
+  const start = page * PAGE_SIZE;
+  const visibleImages = images.slice(start, start + PAGE_SIZE);
+  const showPagination = images.length > PAGE_SIZE;
+
   return (
     <div className='mb-16'>
       <h2 className='text-2xl sm:text-3xl font-light text-white mb-4'>{title}</h2>
       <div className='w-16 h-px bg-purple-500 mb-8' />
 
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-        {images.map((src, index) => (
+        {visibleImages.map((src, index) => (
           <button
-            key={index}
+            key={start + index}
             onClick={() => onImageClick(src)}
             className='aspect-square overflow-hidden rounded-lg bg-zinc-200 hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2'
           >
             <img
               src={src}
-              alt={`${title} ${index + 1}`}
+              alt={`${title} ${start + index + 1}`}
               className='w-full h-full object-cover'
               loading='lazy'
             />
           </button>
         ))}
       </div>
+
+      {showPagination && (
+        <div className='flex items-center justify-center gap-4 mt-8'>
+          <button
+            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            disabled={page === 0}
+            className='px-4 py-2 text-white border border-zinc-700 rounded-lg hover:border-purple-500 hover:text-purple-400 transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:border-zinc-700 disabled:hover:text-white'
+            aria-label='Vorherige Seite'
+          >
+            Zurück
+          </button>
+          <span className='text-gray-400 text-sm'>
+            {page + 1} / {totalPages}
+          </span>
+          <button
+            onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+            disabled={page >= totalPages - 1}
+            className='px-4 py-2 text-white border border-zinc-700 rounded-lg hover:border-purple-500 hover:text-purple-400 transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:border-zinc-700 disabled:hover:text-white'
+            aria-label='Nächste Seite'
+          >
+            Weiter
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -71,10 +103,11 @@ function Lightbox({ src, onClose }: LightboxProps) {
 }
 
 // Image arrays
-const tattooImages = Array.from(
-  { length: 8 },
-  (_, i) => `${BASE_PATH}/galerie/tattoos/tattoo-${i + 1}.webp`
-);
+const tattooImages = Array.from({ length: 47 }, (_, i) => {
+  const n = i + 1;
+  const ext = n <= 8 ? 'webp' : 'jpeg';
+  return `${BASE_PATH}/galerie/tattoos/tattoo-${n}.${ext}`;
+});
 
 const coverUpImages = Array.from(
   { length: 4 },
